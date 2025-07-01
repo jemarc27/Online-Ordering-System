@@ -61,6 +61,10 @@ flutter:
   - assets/images/Pancit_Canton_Bihon_Guisado.png
   - assets/images/Spaghetti.png
   - assets/images/sweet_and_spicy.png
+  - assets/images/pancit_bilao.jpg
+  - assets/images/spaghetti_bilao.jpg
+  - assets/images/chami_bilao.jpg
+  - assets/images/palabok_bilao.jpg
 
 
   #uses-material-design: true
