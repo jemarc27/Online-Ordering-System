@@ -37,7 +37,7 @@ class Ordernow extends StatelessWidget {
           children: [
             const SizedBox(height: 85),
             _drawerItem(context, 'Home', '/landingpage'),
-            _drawerItem(context, 'Order Now', '/ordernow'),
+            _drawerItem(context, 'Order Now', '/OrderNow'),
             _drawerItem(context, 'Contact Us', '/contactus'),
             _iconItem(context, 'Notifications', Icons.notifications, '/notifications'),
             _iconItem(context, 'Account', Icons.account_circle, '/profile'),

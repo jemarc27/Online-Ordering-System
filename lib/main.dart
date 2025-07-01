@@ -6,7 +6,7 @@ import 'pages/notifications.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,18 +21,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/landingpage': (context) => const Landingpage(),
         '/contactus': (context) => const ContactUs(),
-        '/OrderNow': (context)   => const  OrderNow(),
+        '/OrderNow': (context)   => const  Ordernow(),
         '/notifications': (context) => const Notifications(),
       },
-    );
-  }
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Food Recommendations'),
@@ -57,19 +48,19 @@ class MyApp extends StatelessWidget {
                 child: Row(
                   children: [
                     FoodItem(
-                      image: 'assets/Dessert.png',
+                      image: 'assets/images/Dessert.png',
                       title: 'Graham',
                     ),
                     FoodItem(
-                      image: 'assets/Pancit_Canton_Bihon_Guisado.png',
+                      image: 'assets/images/Pancit_Canton_Bihon_Guisado.png',
                       title: 'Bihon',
                     ),
                     FoodItem(
-                      image: 'assets/sweet_and_spicy.png',
+                      image: 'assets/images/sweet_and_spicy.png',
                       title: 'Sweet & Spicy',
                     ),
                     FoodItem(
-                      image: 'assets/Spaghetti.png',
+                      image: 'assets/images/Spaghetti.png',
                       title: 'Spaghetti',
                     ),
                   ],
@@ -82,6 +73,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
 
 class BackgroundClipper extends CustomClipper<Path> {
   @override
@@ -107,7 +100,7 @@ class FoodItem extends StatelessWidget {
   final String image;
   final String title;
 
-  FoodItem({required this.image, required this.title});
+  const FoodItem({super.key, required this.image, required this.title});
 
   @override
   Widget build(BuildContext context) {
