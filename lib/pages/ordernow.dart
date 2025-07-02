@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Ordernow extends StatefulWidget {
   const Ordernow({super.key});
@@ -20,25 +21,25 @@ class _OrdernowState extends State<Ordernow> {
     {
       'name': 'Pancit Bilao',
       'price': '₱250.00',
-      'image': 'lib/assets/images/pancit_bilao.jpg',
+      'image': 'assets/images/pancit_bilao.jpg',
       'description': 'A classic Filipino noodle dish with vegetables and meat.'
     },
     {
       'name': 'Spaghetti Bilao',
       'price': '₱280.00',
-      'image': 'lib/assets/images/spaghetti_bilao.jpg',
+      'image': 'assets/images/spaghetti_bilao.jpg',
       'description': 'Filipino-style sweet spaghetti, served in a bilao.'
     },
     {
       'name': 'Palabok Bilao',
       'price': '₱300.00',
-      'image': 'lib/assets/images/palabok_bilao.jpg',
+      'image': 'assets/images/palabok_bilao.jpg',
       'description': 'A flavorful rice noodle dish with shrimp and pork toppings.'
     },
     {
       'name': 'Chami Bilao',
       'price': '₱270.00',
-      'image': 'lib/assets/images/chami_bilao.jpg',
+      'image': 'assets/images/chami_bilao.jpg',
       'description': 'A delicious stir-fried noodle dish with a savory sauce.'
     },
   ];
@@ -76,7 +77,7 @@ class _OrdernowState extends State<Ordernow> {
       body: SingleChildScrollView(  // Wrap the body in a SingleChildScrollView
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
 
             // Category Tabs
             Padding(
@@ -128,7 +129,6 @@ class _OrdernowState extends State<Ordernow> {
                 itemBuilder: (context, index) {
                   final dish = bilao[index];
                   final name = dish['name']!;
-                  final description = dish['description']!;
                   final price = dish['price']!;
                   return Container(
                     decoration: BoxDecoration(
@@ -149,7 +149,6 @@ class _OrdernowState extends State<Ordernow> {
                         Image.asset(dish['image']!, height: 105, fit: BoxFit.cover),
                         const SizedBox(height: 10),
                         Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                        Text(description, textAlign: TextAlign.center, style: const TextStyle(color: Colors.black54)),
                         const SizedBox(height: 10),
                         Text(price, style: const TextStyle(color: Colors.black54)),
                         const SizedBox(height: 10),
@@ -157,10 +156,10 @@ class _OrdernowState extends State<Ordernow> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.remove_circle_outline),
+                              icon: const Icon(FontAwesomeIcons.circleMinus),
                               onPressed: () {
                                 setState(() {
-                                  if (quantities[name]! > 1) {
+                                  if (quantities[name]! > 0) {
                                     quantities[name] = quantities[name]! - 1;
                                   }
                                 });
@@ -168,7 +167,7 @@ class _OrdernowState extends State<Ordernow> {
                             ),
                             Text('${quantities[name]}'),
                             IconButton(
-                              icon: const Icon(Icons.add_circle_outline),
+                              icon: const Icon(FontAwesomeIcons.circlePlus),
                               onPressed: () {
                                 setState(() {
                                   quantities[name] = quantities[name]! + 1;
