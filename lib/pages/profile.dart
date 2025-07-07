@@ -43,12 +43,87 @@ class Profile extends StatelessWidget {
             _drawerItem(context, 'Notifications', '/notifications', FontAwesomeIcons.bell),
             _drawerItem(context, 'Account', '/profile', FontAwesomeIcons.user),
             ListTile(
-              leading: const Icon(FontAwesomeIcons.signOut, color: Colors.black,),
-              title: const Text('Logout', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
+              leading: const Icon(FontAwesomeIcons.signOut, color: Colors.black),
+              title: const Text('Logout', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
               onTap: () {
                 Navigator.pop(context);
                 _showLogoutModal(context);
               },
+            ),
+          ],
+        ),
+      ),
+
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        child: Column(
+          children: [
+
+            // 🔼 USER PROFILE SECTION
+            const Icon(Icons.person, size: 100, color: Colors.grey),
+            const SizedBox(height: 10),
+            const Text('User Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 5),
+            const Text('user@example.com', style: TextStyle(fontSize: 16, color: Colors.black54)),
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              ),
+              child: const Text('Edit Profile'),
+            ),
+
+            const SizedBox(height: 30),
+
+            // 🔽 ORDERS SECTION
+            const Text(
+              'Orders',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+
+            Container(
+              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 6,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      Expanded(child: Text('Order ID', style: TextStyle(fontWeight: FontWeight.bold))),
+                      Expanded(child: Text('Order Method', style: TextStyle(fontWeight: FontWeight.bold))),
+                      Expanded(child: Text('Order Status', style: TextStyle(fontWeight: FontWeight.bold))),
+                      Expanded(child: Text('Track Order', style: TextStyle(fontWeight: FontWeight.bold))),
+                      Expanded(child: Text('View Order', style: TextStyle(fontWeight: FontWeight.bold))),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: const [
+                      Expanded(child: Text('00230')),
+                      Expanded(child: Text('Reservation')),
+                      Expanded(child: Text('Confirmed')),
+                      Expanded(child: Icon(Icons.remove_red_eye)),
+                      Expanded(child: Icon(Icons.receipt_long)),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -58,19 +133,8 @@ class Profile extends StatelessWidget {
 
   Widget _drawerItem(BuildContext context, String title, String route, IconData icon) {
     return ListTile(
-      leading: FaIcon(icon, color: Colors.black, size: 23,),
+      leading: FaIcon(icon, color: Colors.black, size: 23),
       title: Text(title, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-      onTap: () {
-        Navigator.pop(context);
-        Navigator.pushNamed(context, route);
-      },
-    );
-  }
-
-  Widget _iconItem(BuildContext context, String title, IconData icon, String route) {
-    return ListTile(
-      leading: Icon(icon),
-      title: Text(title, style: const TextStyle(fontSize: 16)),
       onTap: () {
         Navigator.pop(context);
         Navigator.pushNamed(context, route);
