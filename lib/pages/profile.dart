@@ -122,6 +122,25 @@ class Profile extends StatelessWidget {
                       Expanded(child: Icon(Icons.receipt_long)),
                     ],
                   ),
+                  Row(
+                    children: const [
+                      Expanded(child: Text('00231')),
+                      Expanded(child: Text('Delivery')),
+                      Expanded(child: Text('Confirmed')),
+                      Expanded(child: Icon(Icons.remove_red_eye)),
+                      Expanded(child: Icon(Icons.receipt_long)),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      Expanded(child: Text('00232')),
+                      Expanded(child: Text('Pick Up')),
+                      Expanded(child: Text('Confirmed')),
+                      Expanded(child: Icon(Icons.remove_red_eye)),
+                      Expanded(child: Icon(Icons.receipt_long)),
+                    ],
+                  ),
+
                 ],
               ),
             ),
