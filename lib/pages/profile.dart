@@ -29,7 +29,6 @@ class Profile extends StatelessWidget {
         ]
             : null,
       ),
-
       endDrawer: Drawer(
         backgroundColor: const Color(0xFFEFCA6C),
         width: 200,
@@ -53,20 +52,16 @@ class Profile extends StatelessWidget {
           ],
         ),
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 24),
         child: Column(
           children: [
-
-            // 🔼 USER PROFILE SECTION
             const Icon(Icons.person, size: 100, color: Colors.grey),
             const SizedBox(height: 10),
             const Text('User Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             const SizedBox(height: 5),
             const Text('user@example.com', style: TextStyle(fontSize: 16, color: Colors.black54)),
             const SizedBox(height: 20),
-
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -77,16 +72,12 @@ class Profile extends StatelessWidget {
               ),
               child: const Text('Edit Profile'),
             ),
-
             const SizedBox(height: 30),
-
-            // 🔽 ORDERS SECTION
             const Text(
               'Orders',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
             Container(
               padding: const EdgeInsets.all(16),
               margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -114,38 +105,120 @@ class Profile extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Row(
-                    children: const [
-                      Expanded(child: Text('00230')),
-                      Expanded(child: Text('Reservation')),
-                      Expanded(child: Text('Confirmed')),
-                      Expanded(child: Icon(Icons.remove_red_eye)),
-                      Expanded(child: Icon(Icons.receipt_long)),
+                    children: [
+                      const Expanded(child: Text('00230')),
+                      const Expanded(child: Text('Reservation')),
+                      const Expanded(child: Text('Confirmed')),
+                      Expanded(
+                        child: IconButton(
+                          icon: const Icon(FontAwesomeIcons.eye),
+                          onPressed: () => _showTrackOrderDialog(context),
+                          iconSize: 14,
+                        ),
+                      ),
+                      const Expanded(child: Icon(Icons.receipt_long)),
                     ],
                   ),
                   Row(
-                    children: const [
-                      Expanded(child: Text('00231')),
-                      Expanded(child: Text('Delivery')),
-                      Expanded(child: Text('Confirmed')),
-                      Expanded(child: Icon(Icons.remove_red_eye)),
-                      Expanded(child: Icon(Icons.receipt_long)),
+                    children: [
+                      const Expanded(child: Text('00231')),
+                      const Expanded(child: Text('Delivery')),
+                      const Expanded(child: Text('Confirmed')),
+                      Expanded(
+                        child: IconButton(
+                          icon: const Icon(FontAwesomeIcons.eye),
+                          onPressed: () => _showTrackOrderDialog(context),
+                          iconSize: 14,
+                        ),
+                      ),
+                      const Expanded(child: Icon(Icons.receipt_long)),
                     ],
                   ),
                   Row(
-                    children: const [
-                      Expanded(child: Text('00232')),
-                      Expanded(child: Text('Pick Up')),
-                      Expanded(child: Text('Confirmed')),
-                      Expanded(child: Icon(Icons.remove_red_eye)),
-                      Expanded(child: Icon(Icons.receipt_long)),
+                    children: [
+                      const Expanded(child: Text('00232')),
+                      const Expanded(child: Text('Pick Up')),
+                      const Expanded(child: Text('Confirmed')),
+                      Expanded(
+                        child: IconButton(
+                          icon: const Icon(FontAwesomeIcons.eye),
+                          onPressed: () => _showTrackOrderDialog(context),
+                          iconSize: 14,
+                        ),
+                      ),
+                      const Expanded(child: Icon(Icons.receipt_long)),
                     ],
                   ),
-
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  static void _showTrackOrderDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        title: const Text("Track Order", style: TextStyle(fontWeight: FontWeight.bold)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Column(
+                  children: [
+                    Icon(Icons.fiber_manual_record, color: Colors.green),
+                    SizedBox(height: 8),
+                    Icon(Icons.fiber_manual_record, color: Colors.green),
+                    SizedBox(height: 8),
+                    Icon(Icons.fiber_manual_record, color: Colors.green),
+                  ],
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Order Placed", style: TextStyle(fontWeight: FontWeight.w500)),
+                      SizedBox(height: 15),
+                      Text("In Process", style: TextStyle(fontWeight: FontWeight.w500)),
+                      SizedBox(height: 15),
+                      Text("Completed", style: TextStyle(fontWeight: FontWeight.w500)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                children: const [
+                  Icon(Icons.info_outline, color: Colors.grey),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Text("Your order has been completed"),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Close"),
+          ),
+        ],
       ),
     );
   }
