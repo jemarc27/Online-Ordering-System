@@ -172,11 +172,11 @@ class Profile extends StatelessWidget {
               children: const [
                 Column(
                   children: [
-                    Icon(Icons.fiber_manual_record, color: Colors.green),
-                    SizedBox(height: 8),
-                    Icon(Icons.fiber_manual_record, color: Colors.green),
-                    SizedBox(height: 8),
-                    Icon(Icons.fiber_manual_record, color: Colors.green),
+                    Icon(Icons.check_circle, color: Colors.green, size: 24),
+                    SizedBox(height: 24),
+                    Icon(Icons.check_circle, color: Colors.green, size: 24),
+                    SizedBox(height: 24),
+                    Icon(Icons.check_circle, color: Colors.green, size: 24),
                   ],
                 ),
                 SizedBox(width: 12),
@@ -185,9 +185,9 @@ class Profile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Order Placed", style: TextStyle(fontWeight: FontWeight.w500)),
-                      SizedBox(height: 15),
+                      SizedBox(height: 32),
                       Text("In Process", style: TextStyle(fontWeight: FontWeight.w500)),
-                      SizedBox(height: 15),
+                      SizedBox(height: 32),
                       Text("Completed", style: TextStyle(fontWeight: FontWeight.w500)),
                     ],
                   ),
@@ -203,7 +203,7 @@ class Profile extends StatelessWidget {
               ),
               child: Row(
                 children: const [
-                  Icon(Icons.info_outline, color: Colors.grey),
+                  Icon(Icons.check_circle_outline, color: Colors.green),
                   SizedBox(width: 10),
                   Expanded(
                     child: Text("Your order has been completed"),
