@@ -4,6 +4,7 @@ import 'pages/landingPage.dart';
 import 'pages/ordernow.dart';
 import 'pages/contactus.dart';
 import 'pages/notifications.dart';
+import 'package:online_ordering_system/auth/login.dart';
 
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/landingpage',
       routes: {
+        '/login': (context) => const Login(),
         '/landingpage': (context) => const Landingpage(),
         '/contactus': (context) => const ContactUs(),
         '/OrderNow': (context)   => const Ordernow(),
